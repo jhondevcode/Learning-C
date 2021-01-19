@@ -10,6 +10,6 @@ Este repositorio contiene mis pasos 👞 y la ruta de aprendizaje que segui para
 
 Aqui se enecuentran códigos en el lenguaje C los cuales empiezan desde el clásico __**Hola Mundo**__ hasta temas de mayor complejidad.
 
-# Requerimientos 📋
+## Requerimientos 📋
 
 Si por alguna razón decides usar estos códigos, puedes hacerlo con toda libertad, no se requiere conocimientos amplios en programación para poder entender los códigos
