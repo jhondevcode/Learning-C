@@ -1,0 +1,11 @@
+# IDEA files
+.idea
+
+# Eclipse files
+.classpath
+bin
+.settings
+.project
+
+# visual studio code files
+.vscode
