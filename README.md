@@ -12,4 +12,4 @@ Aqui se enecuentran códigos en el lenguaje C los cuales empiezan desde el clás
 
 # Requerimientos 📋
 
-Si por alguna razón decides usar estos codigos, puedes hacerlo con toda libertad, no se requiere conocimientos aplios en programación para poder entender los codigos
+Si por alguna razón decides usar estos códigos, puedes hacerlo con toda libertad, no se requiere conocimientos amplios en programación para poder entender los códigos
