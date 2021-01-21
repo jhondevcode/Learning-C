@@ -9,3 +9,6 @@ bin
 
 # visual studio code files
 .vscode
+
+# compilados
+*.exe
