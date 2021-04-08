@@ -1,5 +1,5 @@
 PYTHON_PATH=/usr/bin/python3.8
-WORKSPACE_GENERATOR=gen.py
+WORKSPACE_GENERATOR=template.py
 BINARY_COMPILATION=.out
 
 new:
