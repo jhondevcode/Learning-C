@@ -25,6 +25,13 @@ int main(int argc, char const *argv[]) {
                 printf("Cannot divide by zero\n");
             }
             break;
+        case '%':
+            if (number02 != 0) {
+                printf("%ld\n", ((long)number01 % (long)number02));
+            } else {
+                printf("Cannot divide by zero\n");
+            }
+            break;
         default:
             printf("'%c' is not a valid operator", operator);
             break;
