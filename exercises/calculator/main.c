@@ -19,7 +19,11 @@ int main(int argc, char const *argv[]) {
             printf("%lf\n", number01 * number02);
             break;
         case '/':
-            printf("%lf\n", number01 / number02);
+            if (number02 != 0) {
+                printf("%lf\n", number01 / number02);
+            } else {
+                printf("Cannot divide by zero\n");
+            }
             break;
         default:
             printf("'%c' is not a valid operator", operator);
