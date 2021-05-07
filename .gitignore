@@ -10,5 +10,10 @@ bin
 # visual studio code files
 .vscode
 
-# compilados
+# compilateds
 *.exe
+*.out
+*.obj
+
+# log files
+*.log
