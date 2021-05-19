@@ -171,7 +171,7 @@ class ProjectCompiler():
                 else:
                     target_file = self.__workspace + get_path_separator() + "main.out"
                 execution = os.system(f"{COMPILER} {source_file} -o {target_file}")
-                if execution == 0:
+                if execution == EXIT_SUCCESS:
                     print("Compiling... done")
                     if self.__to_execute:
                         if platform.system() == "Windows":
