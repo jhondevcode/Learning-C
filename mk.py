@@ -111,7 +111,7 @@ class TemplateGenerator:
         file.write("#include <stdio.h>\n")
         file.write("#include <stdlib.h>\n\n")
         file.write("int main(int argc, char const *argv[]) {\n")
-        file.write(f"{' ' * 4}printf(\"Hello world\n\");\n")
+        file.write(f"{' ' * 4}printf(\"Hello world\\n\");\n")
         file.write(f"{' ' * 4}return EXIT_SUCCESS;\n")
         file.write("}\n")
 
