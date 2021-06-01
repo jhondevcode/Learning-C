@@ -38,6 +38,10 @@ int main(int argc, char const *argv[]) {
 char* color_name(Color rgb) {
     if (rgb.r == 0 && rgb.g == 0 && rgb.b == 255) {
         return "blue";
+    } else if (rgb.r == 0 && rgb.g == 255 && rgb.b == 0) {
+        return "green";
+    } else if (rgb.r == 255 && rgb.g == 0 && rgb.b == 0) {
+        return "red";
     } else {
         return "undefined";
     }
