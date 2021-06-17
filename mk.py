@@ -24,8 +24,6 @@ import platform
 from datetime import datetime
 
 COMPILER = "gcc"
-EXIT_SUCCESS = 0
-EXIT_FAILED = 1
 
 
 # General purpose functions
@@ -171,7 +169,7 @@ class ProjectCompiler():
                 else:
                     target_file = self.__workspace + get_path_separator() + "main.out"
                 execution = os.system(f"{COMPILER} {source_file} -o {target_file}")
-                if execution == EXIT_SUCCESS:
+                if execution == 0:
                     print("Compiling... done")
                     if self.__to_execute:
                         if platform.system() == "Windows":
@@ -179,7 +177,7 @@ class ProjectCompiler():
                             execution = os.system(target_file)
                         else:
                             print("Running...\n")
-                            execution = os.system(f"./{target_file}")
+                            execution = os.system(f"{target_file.replace('main.out', './main.out')}")
                         print("\nProcess ended with exit code", execution)
                     else:
                         print("The compilation was successful")
