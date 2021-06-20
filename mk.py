@@ -20,7 +20,7 @@ native terminal of the environment.
 
 import os
 import sys
-import platform
+from platform import system
 from datetime import datetime
 
 COMPILER = "gcc"
@@ -29,14 +29,17 @@ COMPILER = "gcc"
 # General purpose functions
 ################################################################################
 def clean_output():
-    if platform.system() == "Windows":
+    if system() == "Windows":
         os.system("cls")
-    elif platform.system() == "Linux" or platform.system() == "Darwin":
+    elif system() == "Linux" or system() == "Darwin":
         os.system("clear")
 
 
 def get_user_name():
-    return os.environ["USERNAME"]
+    if "windows" in system().lower():
+        return os.environ["USERNAME"]
+    else:
+        return os.environ["USER"]
 
 
 def get_current_worspace():
@@ -44,9 +47,9 @@ def get_current_worspace():
 
 
 def get_path_separator():
-    if platform.system() == "Windows":
+    if system() == "Windows":
         return "\\"
-    elif platform.system() == "Linux" or platform.system() == "Darwin":
+    elif system() == "Linux" or system() == "Darwin":
         return "/"
 
 
@@ -165,7 +168,7 @@ class ProjectCompiler:
             execution = os.system(f"{COMPILER} --version")
             if execution == 0:
                 source_file = self.__workspace + get_path_separator() + "main.c"
-                if platform.system() == "Windows":
+                if system() == "Windows":
                     target_file = self.__workspace + get_path_separator() + "main.exe"
                 else:
                     target_file = self.__workspace + get_path_separator() + "main.out"
@@ -173,7 +176,7 @@ class ProjectCompiler:
                 if execution == 0:
                     print("Compiling... done")
                     if self.__to_execute:
-                        if platform.system() == "Windows":
+                        if system() == "Windows":
                             print("Running...\n")
                             execution = os.system(target_file)
                         else:
