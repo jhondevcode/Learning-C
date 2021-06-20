@@ -57,6 +57,8 @@ def get_arg_value(args, prefix):
             value = val.replace(prefix, "").replace("\"", "")
             break
     return value
+
+
 ################################################################################
 
 
@@ -91,7 +93,7 @@ class TemplateGenerator:
         else:
             try:
                 os.mkdir(self.__project_path)
-            except Exception as e:
+            except:
                 print("Directory already exists")
 
     def __load_comments(self, file):
@@ -125,13 +127,13 @@ class TemplateGenerator:
             print(str(e))
 
 
-class ProjectCompiler():
+class ProjectCompiler:
     """ Used to compile generated projects """
 
-    def __init__(self, path_name =  None, exec = False):
+    def __init__(self, path_name=None, run=False):
         super(ProjectCompiler, self)
         self.__workspace = get_current_worspace() + get_path_separator() + path_name.replace("/", get_path_separator())
-        self.__to_execute = exec
+        self.__to_execute = run
 
     def __check_workspace(self):
         if os.path.exists(self.__workspace):
@@ -163,7 +165,6 @@ class ProjectCompiler():
             execution = os.system(f"{COMPILER} --version")
             if execution == 0:
                 source_file = self.__workspace + get_path_separator() + "main.c"
-                target_file = ""
                 if platform.system() == "Windows":
                     target_file = self.__workspace + get_path_separator() + "main.exe"
                 else:
@@ -200,7 +201,6 @@ def show_help():
 def main():
     args = sys.argv
     if len(args) > 1:
-        first_arg = args[1]
         if args[1] == 'new':
             path_name = get_arg_value(args, "-path=")
             if path_name is not None and path_name != "":
@@ -210,7 +210,7 @@ def main():
                 if description is not None:
                     template.add_description(get_arg_value(args, "-dsc="))
                 else:
-                    template.add_description("Undefinned")
+                    template.add_description("Undefined")
                 template.generate()
             else:
                 print("You must indicate a name or path")
@@ -232,6 +232,7 @@ def main():
     else:
         print("It must indicate a task")
         show_help()
+
 
 if __name__ == '__main__':
     main()
